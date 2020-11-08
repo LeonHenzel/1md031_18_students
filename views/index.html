@@ -1,9 +1,105 @@
 <!DOCTYPE html>
 <html lang="en">
+
     <head>
-        <title>DELI-VERY</title>
+        <title>Page title shown in window title</title>
+        <script src="https://vuejs.org/js/vue.js"></script>
+        <meta charset="utf-8"/>
+        <link rel="stylesheet" type="text/css" href="css/burgerStyle.css">
+        <script src ="vue_script.js">
+
+        </script>
+        <script src="js/js_script.js"></script>
     </head>
+
     <body>
-        <h1>Hello World!!!</h1>
+      <main class="Header">
+        <img class="headerPic" src="http://www.square1burgers.com/wp-content/uploads/2016/12/Interior1.jpg" title="HeaderPic">
+        <h1> Welcome to BurgerOnline</h1>
+      </main>
+      <section id="BurgerMenu">
+
+        <h2>Select burger</h2>
+        <div> make your borger choice</div>
+
+        <div class="Menu">
+
+          <div class="Burger a">
+            <h3>The Leon Burger</h3>
+            <img src="https://assets.epicurious.com/photos/57c5c6d9cf9e9ad43de2d96e/6:4/w_620%2Ch_413/the-ultimate-hamburger.jpg" title="Leon Burger" width="250">
+            <ul class="recipe">
+              <li>Beef from Lithuania</li>
+              <li>Gator <span class="dairy">cheese</span></li>
+              <li>Served on a <span class="gluten">Brioche Bun</span></li>
+            </ul>
+          </div>
+
+          <div class="Burger b">
+            <h3>Plant Burger</h3>
+            <img src="https://www.ctvnews.ca/polopoly_fs/1.4398678.1564009389!/httpImage/image.jpg_gen/derivatives/landscape_1020/image.jpg"  title="Plant Burger" width="250" height="165">
+            <ul class="recipe">
+              <li>Patty made from peas</li>
+              <li>Tofu-cheese</li>
+              <li>Served on a <span class="gluten">Brioche Bun</span></li>
+            </ul>
+
+          </div>
+          <div class="Burger c">
+            <h3>Chicken Burger</h3>
+            <img src="https://images.immediate.co.uk/production/volatile/sites/2/2017/06/Butchies-2.jpg?webp=true&quality=45&crop=10px%2C1099px%2C3819px%2C1643px&resize=1880%2C799" title="Chicken Burger" width="250" height="165">
+            <ul class="recipe">
+              <li>Chicken excecuted for war crimes</li>
+              <li>Human <span class="dairy">cheese</span></li>
+              <li>Served on a <span class="gluten">Brioche Bun</span></li>
+            </ul>
+          </div>
+        </div>
+
+
+      </section>
+
+      <section id="CustomerInformation">
+        <h2>Enter customer information</h2>
+        <fieldset class = "InfoField">
+          <form>
+            <legend><h3>Delivery Information</h3></legend>
+            <p>
+              <label for="name">Enter name</label><br>
+              <input type="text" id="firstname" name="fn" required="required" placeholder="First-and Last name">
+            </p>
+            <p>
+              <label for="email">Enter email adress</label><br>
+              <input type="text" name="em" placeholder="email adress">
+            </p>
+              <label for="street">Enter street</label><br>
+              <input type="text" name="sn" placeholder="Street name">
+            <p>
+              <label for="House">Enter house number</label><br>
+              <input type="number" name="hn" placeholder="House number">
+            <p>
+            <p>
+              <label for="Payment method">Payment method</label><br>
+              <select class="Payment method" name="PM">
+                <option>Credit Card</option>
+                <option>Swish</option>
+                <option>PayPal</option>
+                <option>Bill</option>
+              </select>
+            </p>
+            <label for="Gender">Gender</label><br>
+            <div><input type="radio" name="gender">Male</div>
+            <div><input type="radio" name="gender">Female</div>
+            <div><input type="radio" name="gender">Non Binary</div>
+            <div><input type="radio" name="gender" checked="checked">Undisclosed</div>
+          </form>
+          <p></p>
+          <button type="submit"><img src="https://www.flaticon.com/svg/static/icons/svg/857/857718.svg"height="20" width="20" >Place order!</button>
+        </fieldset>
+      </section>
+
+      <footer>
+        <hr></hr>
+        <p><span>&#169;</span>This website is owned by Leon Henzel. He is very cool</p>
+      </footer>
     </body>
 </html>
