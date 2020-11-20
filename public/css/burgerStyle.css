@@ -1,0 +1,105 @@
+@import 'https://fonts.googleapis.com/css?family=Pacifico|Dosis';
+
+body{
+  font-family: arial;
+  font-size: 13pt;
+
+}
+.gluten, .dairy{
+  font-weight: bold;
+}
+
+.recipe{
+  font-size: 12pt;
+}
+
+#BurgerMenu{
+  background-color: black;
+  color: white;
+  border: 2px dashed white;
+  padding-left: 10px;
+}
+
+#BurgerMenu2{
+  background-color: black;
+  color: white;
+  border: 2px dashed white;
+  padding-left: 10px;
+}
+#CustomerInformation{
+  background-color: white;
+  border:2px dashed black;
+  padding-left: 10px;
+}
+table{
+  width: 80%
+
+}
+
+section{
+  margin-top: 6px;
+  padding-bottom: 0px;
+}
+.InfoField{
+  border-color: transparent;
+  background-color: #f0f0f0
+}
+
+/*main{
+  background-image: url("../css/BurgerPlace.png");
+  overflow: hidden;
+}*/
+
+
+main{
+  position: relative;
+}
+.headerPic{
+  width: 100%;
+  opacity: 0.53;
+  height: 200px;
+}
+
+#Title{
+  position: absolute;
+  color: black;
+  top: 40px;
+  width: 100%;
+  text-align: center;
+  color: black;
+}
+
+
+footer{
+  background-color: white;
+}
+
+button:hover{
+  background-color: pink;
+  color: grey;
+}
+
+#Menu{
+  display: grid;
+  grid-template-columns: 32.5% 32.5% 32.5%;
+  grid-column-gap: 20px;
+  padding-bottom: 40px;
+}
+
+#Menu2{
+  display: grid;
+  grid-template-columns: 32.5% 32.5% 32.5%;
+  grid-column-gap: 20px;
+  padding-bottom: 40px;
+
+}
+#burgerPic{
+  padding-left: 0;
+  margin-left: 0;
+}
+
+#orderConfirmation{
+  text-align: center;
+  width: 300px;
+  background-color: #f0f0f0;
+}
