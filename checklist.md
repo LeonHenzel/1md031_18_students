@@ -71,9 +71,9 @@ Create a vue_script.js file which contains:
     - [X] The customer information
 
 ## Optional
-- [X] Set the orderID on client side so one customer can make multiple orders
-- [X] Only allow the order to be sent if all necessary information are provided
-- [X] Display the order(s) on the customer page as well
-- [X] Allow the dispatcher to handle orders by providing buttons next to every order that can switch the order status to "in preparation" and "done"
-- [X] Display the order status to the customer and update it in the customer view if updated by the dispatcher
-- [X] Find a better visualization for what orders belong to which location on the map
+- [ ] Set the orderID on client side so one customer can make multiple orders
+- [ ] Only allow the order to be sent if all necessary information are provided
+- [ ] Display the order(s) on the customer page as well
+- [ ] Allow the dispatcher to handle orders by providing buttons next to every order that can switch the order status to "in preparation" and "done"
+- [ ] Display the order status to the customer and update it in the customer view if updated by the dispatcher
+- [ ] Find a better visualization for what orders belong to which location on the map
