@@ -74,9 +74,10 @@ footer{
   background-color: white;
 }
 
-button:hover{
+#orderButton:hover{
   background-color: pink;
   color: grey;
+  cursor: pointer;
 }
 
 #Menu{
