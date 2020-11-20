@@ -2,61 +2,58 @@
 <html lang="en">
 
     <head>
-        <title>Page title shown in window title</title>
-        <script src="https://vuejs.org/js/vue.js"></script>
-        <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta charset="utf-8">
         <link rel="stylesheet" type="text/css" href="css/burgerStyle.css">
-        <script src ="vue_script.js">
 
-        </script>
-        <script src="js/js_script.js"></script>
-    </head>
+        <link rel="stylesheet" type="text/css" href=" css/style.css">
+        <link rel="stylesheet" href="css/deli-very.css">
 
+        <script type="text/javascript" src="js/menu.js"></script>
+
+        <script src="/vue/vue.js" defer></script>
+        <script src="js/js_script.js" defer></script>
+        <!--<script src="https://vuejs.org/js/vue.js"></script>-->
+        <script src="/socket.io/socket.io.js" defer></script>
+        <script src="js/vue_script.js" defer></script>
+
+        <title>Deli(very)-Burger</title>
+        <meta charset="utf-8"/> 
+        </head>
     <body>
-      <main class="Header">
+
+      <main id="mainSection" class="Header">
         <img class="headerPic" src="http://www.square1burgers.com/wp-content/uploads/2016/12/Interior1.jpg" title="HeaderPic">
-        <h1> Welcome to BurgerOnline</h1>
-      </main>
-      <section id="BurgerMenu">
+        <h1 id="Title"> Welcome Jaroslavs Bitchin Burgers</h1>
 
+
+      <section id="BurgerMenu2">
         <h2>Select burger</h2>
-        <div> make your borger choice</div>
-
-        <div class="Menu">
-
-          <div class="Burger a">
-            <h3>The Leon Burger</h3>
-            <img src="https://assets.epicurious.com/photos/57c5c6d9cf9e9ad43de2d96e/6:4/w_620%2Ch_413/the-ultimate-hamburger.jpg" title="Leon Burger" width="250">
-            <ul class="recipe">
-              <li>Beef from Lithuania</li>
-              <li>Gator <span class="dairy">cheese</span></li>
-              <li>Served on a <span class="gluten">Brioche Bun</span></li>
-            </ul>
-          </div>
-
-          <div class="Burger b">
-            <h3>Plant Burger</h3>
-            <img src="https://www.ctvnews.ca/polopoly_fs/1.4398678.1564009389!/httpImage/image.jpg_gen/derivatives/landscape_1020/image.jpg"  title="Plant Burger" width="250" height="165">
-            <ul class="recipe">
-              <li>Patty made from peas</li>
-              <li>Tofu-cheese</li>
-              <li>Served on a <span class="gluten">Brioche Bun</span></li>
-            </ul>
-
-          </div>
-          <div class="Burger c">
-            <h3>Chicken Burger</h3>
-            <img src="https://images.immediate.co.uk/production/volatile/sites/2/2017/06/Butchies-2.jpg?webp=true&quality=45&crop=10px%2C1099px%2C3819px%2C1643px&resize=1880%2C799" title="Chicken Burger" width="250" height="165">
-            <ul class="recipe">
-              <li>Chicken excecuted for war crimes</li>
-              <li>Human <span class="dairy">cheese</span></li>
-              <li>Served on a <span class="gluten">Brioche Bun</span></li>
-            </ul>
-          </div>
+        <div>
         </div>
+        <div id="Menu2">
+            <div class="Burger"  v-for="burger in burgers">
+              <h3>{{burger.name}}</h3>
+              <ul>
+                <img id="burgerPic" v-bind:src = burger.img width="250" height="165">
+                <input type="checkbox" v-model="orderList" :value="burger.name">
 
+                <li v-for="ingr in burger.recipe">
+                  {{ingr}}
+                </li>
+                <li v-if = "burger.gluten==true">
+                  Contains <span class="dairy">gluten</span>
+                </li>
+                <li v-if = "burger.lactose==true">
+                  Contains <span class="dairy">lactose</span>
+                </li>
+              </ul>
 
+            </div>
+
+        </div>
       </section>
+
 
       <section id="CustomerInformation">
         <h2>Enter customer information</h2>
@@ -65,41 +62,66 @@
             <legend><h3>Delivery Information</h3></legend>
             <p>
               <label for="name">Enter name</label><br>
-              <input type="text" id="firstname" name="fn" required="required" placeholder="First-and Last name">
+              <input v-model ="name" type="text" id="firstname" name="fn" required="required" placeholder="First-and Last name">
             </p>
             <p>
-              <label for="email">Enter email adress</label><br>
-              <input type="text" name="em" placeholder="email adress">
+              <label for="</main>">Enter email adress</label><br>
+              <input v-model ="email" type="text" name="em" placeholder="email adress">
             </p>
-              <label for="street">Enter street</label><br>
-              <input type="text" name="sn" placeholder="Street name">
-            <p>
-              <label for="House">Enter house number</label><br>
-              <input type="number" name="hn" placeholder="House number">
-            <p>
+
+
             <p>
               <label for="Payment method">Payment method</label><br>
-              <select class="Payment method" name="PM">
-                <option>Credit Card</option>
-                <option>Swish</option>
-                <option>PayPal</option>
-                <option>Bill</option>
+              <select class="Payment method" v-model="payment" name="PM">
+                <option v-for="option in paymentOptions">{{option}}</option>
               </select>
             </p>
+
+
+            <h1> Click in the map! </h1>
+            <a href="/dispatcher" target="_blank">Open dispatcher in new window</a>.
+            <div class="view-box">
+              <div id="dots" v-on:click="displayOrder">
+                  <div v-bind:style="{ left:coordinates.x + 'px', top: coordinates.y + 'px'}">
+                      T
+                  </div>
+              </div>
+            </div>
+
             <label for="Gender">Gender</label><br>
-            <div><input type="radio" name="gender">Male</div>
-            <div><input type="radio" name="gender">Female</div>
-            <div><input type="radio" name="gender">Non Binary</div>
-            <div><input type="radio" name="gender" checked="checked">Undisclosed</div>
+            <div><input type="radio" value="Male" v-model="gender" name="gender">Male</div>
+            <div><input type="radio" value="Female" v-model="gender" name="gender">Female</div>
+            <div><input type="radio" value="Non Binary" v-model="gender" name="gender">Non Binary</div>
+            <div><input type="radio" value="Undisclosed" v-model="gender" name="gender" checked="checked">Undisclosed</div>
           </form>
           <p></p>
-          <button type="submit"><img src="https://www.flaticon.com/svg/static/icons/svg/857/857718.svg"height="20" width="20" >Place order!</button>
+          <button id="orderButton" type="submit" v-on:click = "logCredentials"><img src="https://www.flaticon.com/svg/static/icons/svg/857/857718.svg"height="20" width="20" >Place order!</button>
         </fieldset>
+
+
       </section>
 
+      <section id="orderSummary">
+        <div id = "orderConfirmation" v-if="gotClicked">
+          <h3>Order Confirmation</h3>
+          <div v-for="object in customerInfo">
+            {{object.value}}
+            <p></p>
+          </div>
+          <h4>My order:</h4>
+
+            <div v-for="order in confirmedOrderList">
+              {{order}}
+            </div>
+        </div>
+
+      </section>
+
+</main>
       <footer>
         <hr></hr>
         <p><span>&#169;</span>This website is owned by Leon Henzel. He is very cool</p>
       </footer>
+
     </body>
 </html>
